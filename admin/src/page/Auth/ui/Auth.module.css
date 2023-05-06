@@ -1,0 +1,12 @@
+.Auth {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0a1929;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paper {
+  width: 400px;
+  padding: 16px;
+}
