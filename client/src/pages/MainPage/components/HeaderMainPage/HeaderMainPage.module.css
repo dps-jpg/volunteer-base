@@ -1,0 +1,6 @@
+.HeaderMainPage {
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: calc(var(--nav-height) + 160px);
+    height: 100vh;
+}

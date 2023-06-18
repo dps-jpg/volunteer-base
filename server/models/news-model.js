@@ -6,6 +6,7 @@ const NewsSchema = new Schema({
     title: { type: String, required: true },
     body: { type: String, required: true },
     images: [{ type: String, required: true }],
+    isMain: { type: Boolean, required: true, default: false }
 }, { timestamps: true });
 
 const newsModel = model('News', NewsSchema);

@@ -10,7 +10,7 @@ export const Header: FC = () => {
   };
   const usersMatch = useMatch('/moderate-users');
   const newsMatch = useMatch('/moderate-news');
-  const eventsMatch = useMatch('/moderate-events');
+  const eventsMatch = useMatch('/moderate-EventsPage');
 
   const getStyle = (isActive: boolean) => ({
     mr: '16px',
@@ -26,7 +26,7 @@ export const Header: FC = () => {
         <Box sx={{ cursor: 'pointer' }} onClick={() => { navigate('/moderate-news'); }}>
           <Typography variant={'h5'} sx={getStyle(Boolean(newsMatch))}>Новости</Typography>
         </Box>
-        <Box sx={{ cursor: 'pointer' }} onClick={() => { navigate('/moderate-events'); }}>
+        <Box sx={{ cursor: 'pointer' }} onClick={() => { navigate('/moderate-EventsPage'); }}>
           <Typography variant={'h5'} sx={getStyle(Boolean(eventsMatch))}>Мероприятия</Typography>
         </Box>
 

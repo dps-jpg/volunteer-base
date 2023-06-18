@@ -29,8 +29,15 @@ export const newsApi = createApi({
         body: arg
       }),
       invalidatesTags: ['news']
+    }),
+    makeMain: builder.mutation<any, string>({
+      query: (arg) => ({
+        url: `/news/main/${arg}`,
+        method: 'PATCH'
+      }),
+      invalidatesTags: ['news']
     })
   })
 });
 
-export const { useGetNewsQuery, useDeletePostMutation, useCreatePostMutation } = newsApi;
+export const { useGetNewsQuery, useDeletePostMutation, useCreatePostMutation, useMakeMainMutation } = newsApi;

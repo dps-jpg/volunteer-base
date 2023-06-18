@@ -1,8 +1,12 @@
 const bcrypt = require('bcrypt');
+const XLSX = require('xlsx');
+const path = require('path');
+const { nanoid } = require("nanoid");
 
 const UserModel = require('../models/user-model');
 const UserDto = require('../dtos/user-dto');
 const tokenService = require('./token-service');
+const fileService = require('./file-service');
 const ApiError = require('../exceptions/api-error');
 
 class UserService {
@@ -69,6 +73,33 @@ class UserService {
     async getUserById(id) {
         const user = await UserModel.findById(id)
         return user;
+    }
+
+    async downloadUsers() {
+        const users = await UserModel.find().exec();
+        const arr = users.map((item) => ({
+            id: item._id,
+            email: item.email,
+            firstName: item.firstName,
+            secondName: item.secondName,
+            middleMame: item.middleMame,
+            city: item.city,
+            hours: item.hours,
+            rank: item.rank,
+            phone: item.phone,
+        }))
+
+        const worksheet = XLSX.utils.json_to_sheet(arr);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Users');
+        const fileName = `users-${nanoid(8)}.xlsx`
+        XLSX.writeFile(workbook, path.resolve(__dirname, '../public', fileName));
+
+        setTimeout(() => {
+            fileService.deleteFiles([fileName])
+        }, 5000)
+        fileService.deleteFiles([])
+        return fileName;
     }
 }
 

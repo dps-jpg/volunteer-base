@@ -11,8 +11,11 @@ export const userApi = createApi({
         url: '/admin/users',
         params: arg
       })
+    }),
+    downloadUsers: builder.query<string, void>({
+      query: () => '/users/download'
     })
   })
 });
 
-export const { useGetUsersQuery } = userApi;
+export const { useGetUsersQuery, useLazyDownloadUsersQuery } = userApi;

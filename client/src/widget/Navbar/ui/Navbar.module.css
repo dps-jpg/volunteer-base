@@ -1,0 +1,36 @@
+.Navbar {
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.icons {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px
+}
+.icon2 {
+    height: 65px;
+    width: auto;
+}
+.icon1 {
+    height: 55px;
+    width: auto;
+}
+.nav {
+    display: flex;
+    gap: 24px;
+}
+.link {
+    color: #1e1e1e;
+    font-size: 20px;
+    line-height: 28px;
+}

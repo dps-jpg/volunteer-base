@@ -115,6 +115,7 @@ export const CreatePostModal: FC<CreatePostModalProps> = ({ isOpen, close }) => 
           value={body}
           onChange={(event) => { setBody(event.target.value); setError(false); }}
           multiline={true}
+          maxRows={10}
           variant={'outlined'}
           fullWidth={true}
         />

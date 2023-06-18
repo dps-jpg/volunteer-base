@@ -7,6 +7,7 @@ const EventSchema = new Schema({
     body: { type: String, required: true },
     images: [{ type: String, required: true }],
     city: { type: String, required: true },
+    date: { type: String, required: true },
     hours: { type: Number, required: true },
 }, { timestamps: true });
 

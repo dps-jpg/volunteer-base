@@ -58,6 +58,25 @@ class UserController {
             next(e);
         }
     }
+
+    async getMe(req, res, next) {
+        try {
+            const user = await userService.getUserById(req.user.id)
+            res.json(user);
+        } catch (e) {
+            next(e);
+        }
+    }
+
+    async downloadUsers(req, res, next) {
+        try {
+            const file = await userService.downloadUsers()
+
+            res.json(file);
+        } catch (e) {
+            next(e);
+        }
+    }
 }
 
 module.exports = new UserController();

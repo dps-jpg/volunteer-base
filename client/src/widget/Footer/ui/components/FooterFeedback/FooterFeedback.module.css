@@ -1,0 +1,26 @@
+.icons {
+  margin-top: 30px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.vkLogo {
+  width: 39px;
+  height: 20px;
+}
+.logo {
+  width: 32px;
+  height: 28px;
+}
+.links {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.link {
+  font-size: 16px;
+  line-height: 24px;
+  color: #8E92A7;
+  text-decoration: none;
+}

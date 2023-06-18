@@ -1,0 +1,46 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard-with-typescript"
+    ],
+    "globals": {
+        "_API_": true
+    },
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": [
+            "./tsconfig.json"
+        ]
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/jsx-indent": ["error", 2],
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/semi": ["error", "always"],
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/member-delimiter-style": ["error", {
+            "multiline": {
+                "delimiter": "semi",
+                "requireLast": true
+            },
+            "singleline": {
+                "delimiter": "semi",
+                "requireLast": false
+            },
+            "multilineDetection": "brackets"
+        }]
+    }
+}

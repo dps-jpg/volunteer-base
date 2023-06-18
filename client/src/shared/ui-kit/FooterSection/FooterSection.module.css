@@ -1,0 +1,13 @@
+.title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: #003466;
+}
+.horizontalLine {
+  background-color: #2EA2D6;
+  color: #2EA2D6;
+  height: 2px;
+  border: none;
+  margin-top: 16px;
+}

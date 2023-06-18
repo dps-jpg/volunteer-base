@@ -8,6 +8,17 @@ export interface EventTypes {
   createdAt: string;
 }
 
+export interface MemberTypes {
+  _id: string;
+  userId: string;
+  eventId: string;
+  isTookPart: boolean;
+  email: string;
+  firstName: string;
+  secondName: string;
+  middleMame?: string;
+}
+
 export interface GetNewsResponse {
   totalCount: number;
   data: EventTypes[];

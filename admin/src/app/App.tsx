@@ -8,7 +8,10 @@ import { PrivateRoute } from 'widget/PrivateRoute';
 import { Auth } from 'page/Auth';
 
 import './styles/index.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import { Layout } from 'page/Layout';
+import { EventMembers } from 'page/EventMembers';
 
 export const App: FC = () => {
   return (
@@ -19,7 +22,8 @@ export const App: FC = () => {
           <Route element={<Layout />}>
             <Route path={'/moderate-users'} element={<UserListPage />} />
             <Route path={'/moderate-news'} element={<NewsListPage />} />
-            <Route path={'/moderate-events'} element={<EventsPage />} />
+            <Route path={'/moderate-EventsPage'} element={<EventsPage />} />
+            <Route path={'/events/:id'} element={<EventMembers />} />
             <Route path={'*'} element={<Navigate to={'/moderate-users'} />} />
           </Route>
         </Route>

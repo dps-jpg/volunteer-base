@@ -8,17 +8,18 @@ class EventController {
 
             res.json(news);
         } catch (e) {
-            next();
+            next(e);
         }
     }
 
     async getEventById(req, res, next) {
         try {
-            const event = await eventService.getEventById(req.params.id);
+
+            const event = await eventService.getEventById(req.params.id, req.query.userId);
 
             res.json(event);
         } catch (e) {
-            next()
+            next(e)
         }
     }
 
@@ -38,8 +39,39 @@ class EventController {
             const info = await eventService.delete(req.params.id);
 
             res.status(200).send()
-        } catch {
-            next()
+        } catch(e) {
+            next(e)
+        }
+    }
+
+    async participateEvent(req, res, next) {
+        try {
+            await eventService.participateEvent(req);
+
+            res.status(200).send()
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async getMembers(req, res, next) {
+        try {
+            const members = await eventService.getMembers(req.params.id);
+
+            res.json(members);
+        } catch (e) {
+            next(e)
+        }
+    }
+
+    async confirmParticipation(req, res, next) {
+        try {
+            await eventService.confirmParticipation(req.body);
+
+            res.status(200).send();
+        } catch (e) {
+            console.log(e);
+            next(e)
         }
     }
 }

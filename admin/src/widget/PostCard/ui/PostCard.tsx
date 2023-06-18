@@ -1,13 +1,10 @@
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
-import { Card, CardContent, CardHeader, IconButton, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardHeader, IconButton, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useDeletePostMutation } from 'store/api/newsApi';
+import { useDeletePostMutation, useMakeMainMutation } from 'store/api/newsApi';
 import { PostTypes } from 'store/api/types/news';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
 
 interface PostCardProps {
   post: PostTypes;
@@ -16,13 +13,17 @@ interface PostCardProps {
 
 export const PostCard: FC<PostCardProps> = ({ post, orderNumber }) => {
   const [deletePost] = useDeletePostMutation();
+  const [makeMain] = useMakeMainMutation();
   return (
-    <Card elevation={3} sx={{ p: '16px', width: '70%', m: '16px auto' }}>
+    <Card elevation={3} sx={{ p: '16px', width: '70%', m: '16px auto', border: post.isMain ? '1px solid #1976d2' : 0 }}>
       <CardHeader
         action={
-          <IconButton aria-label="settings" onClick={async () => await deletePost(post._id)}>
-            <DeleteIcon />
-          </IconButton>
+          <>
+            <Button onClick={async () => await makeMain(post._id)} variant={'text'}>Сделать главной</Button>
+            <IconButton aria-label="settings" onClick={async () => await deletePost(post._id)}>
+              <DeleteIcon />
+            </IconButton>
+          </>
         }
         title={orderNumber.toString() + '. ' + post.title}
        />
@@ -39,7 +40,7 @@ export const PostCard: FC<PostCardProps> = ({ post, orderNumber }) => {
         ))}
       </Swiper>
       <CardContent>
-        <Typography variant={'body1'}>{post.body}</Typography>
+        <Typography whiteSpace={'pre-wrap'} variant={'body1'}>{post.body}</Typography>
       </CardContent>
     </Card>
   );

@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, useEffect, useMemo, useState } from 'react';
-import { Box, Pagination, TextField, Typography } from '@mui/material';
-import { useGetUsersQuery } from 'store/api/userApi';
+import { Box, Button, Pagination, TextField, Typography } from '@mui/material';
+import { useLazyDownloadUsersQuery, useGetUsersQuery } from 'store/api/userApi';
 import { UserCard } from 'widget/UserCard';
 
 export const UserListPage: FC = () => {
@@ -8,6 +8,7 @@ export const UserListPage: FC = () => {
   const [debouncedSearch, setDebouncedSearch] = useState('');
   const [page, setPage] = useState(0);
 
+  const [downloadUsers] = useLazyDownloadUsersQuery();
   const { data, isLoading } = useGetUsersQuery({ limit: 10, page, search: debouncedSearch });
 
   useEffect(() => {
@@ -29,17 +30,33 @@ export const UserListPage: FC = () => {
     });
   };
 
+  const handleDownloadUsers = async () => {
+    try {
+      const res = await downloadUsers().unwrap();
+      const link = document.createElement('a');
+      link.href = `${_API_}/${res}`;
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (e) {
+      console.log('e', e);
+    }
+  };
+
   return (
     <Box sx={{ flexGrow: 1, pt: '32px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <TextField
-        label={'Поиск'}
-        type={'text'}
-        value={search}
-        onChange={(event) => { setSearch(event.target.value); }}
-        variant={'outlined'}
-        fullWidth={true}
-        sx={{ width: '70%' }}
-      />
+      <Box width={'70%'} flex={1} display={'flex'} alignItems={'center'} gap={2}>
+        <TextField
+          label={'Поиск'}
+          type={'text'}
+          value={search}
+          onChange={(event) => { setSearch(event.target.value); }}
+          variant={'outlined'}
+          fullWidth={true}
+        />
+        <Button onClick={handleDownloadUsers} variant={'contained'}>Выгрузить пользователей</Button>
+      </Box>
       {isLoading && (<Typography variant={'h3'} sx={{ textAlign: 'center' }}>Загрузка...</Typography>)}
       {Boolean(data?.data.length) && data?.data.map((item, index) => (
         <UserCard key={item._id} orderNumber={(page * 10) + index + 1} user={item} />

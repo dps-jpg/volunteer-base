@@ -1,0 +1,14 @@
+.MissionBlock {
+    margin-top: 96px;
+    position: relative;
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.paper {
+    color: #FFFFFF;
+    width: 500px;
+}

@@ -1,0 +1,11 @@
+.links {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.link {
+  font: var(--font-p2);
+  color: #8E92A7;
+  text-decoration: none;
+}

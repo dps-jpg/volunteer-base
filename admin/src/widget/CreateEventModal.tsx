@@ -45,6 +45,7 @@ export const CreateEventModal: FC<CreateEventModalProps> = ({ isOpen, close }) =
   const [hours, setHours] = useState('');
   const [city, setCity] = useState('');
   const [files, setFiles] = useState<File[]>([]);
+  const [date, setDate] = useState('');
   const [error, setError] = useState(false);
 
   const [createEvent] = useCreateEventMutation();
@@ -69,11 +70,12 @@ export const CreateEventModal: FC<CreateEventModalProps> = ({ isOpen, close }) =
     setCity('');
     setHours('');
     setBody('');
+    setDate('');
     setFiles([]);
   };
 
   const handleCreate = async () => {
-    if (!title || !body || !files.length || !hours || !city) {
+    if (!title || !body || !files.length || !hours || !city || !date) {
       setError(true);
       return;
     }
@@ -83,6 +85,7 @@ export const CreateEventModal: FC<CreateEventModalProps> = ({ isOpen, close }) =
     form.set('body', body);
     form.set('city', city);
     form.set('hours', hours);
+    form.set('date', date);
     for (const file of files) {
       form.append('images', file);
     }
@@ -129,6 +132,15 @@ export const CreateEventModal: FC<CreateEventModalProps> = ({ isOpen, close }) =
           type={'text'}
           value={city}
           onChange={(event) => { setCity(event.target.value); setError(false); }}
+          variant={'outlined'}
+          fullWidth={true}
+        />
+        <TextField
+          required
+          label={'Дата проведения'}
+          type={'text'}
+          value={date}
+          onChange={(event) => { setDate(event.target.value); setError(false); }}
           variant={'outlined'}
           fullWidth={true}
         />

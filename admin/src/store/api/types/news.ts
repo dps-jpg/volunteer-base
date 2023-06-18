@@ -4,6 +4,7 @@ export interface PostTypes {
   body: string;
   images: string[];
   createdAt: string;
+  isMain: boolean;
 }
 
 export interface GetNewsResponse {

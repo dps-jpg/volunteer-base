@@ -42,6 +42,26 @@ class NewsController {
         }
     }
 
+    async makeMain(req, res, next) {
+        try {
+            await newsService.makeMain(req.params.id);
+
+            res.status(200).send();
+        } catch (e) {
+            next()
+        }
+    }
+
+    async getMainAndLastThreeNews(req, res, next) {
+        try {
+            const news = await newsService.getMainAndLastThreeNews();
+
+            res.json(news);
+        } catch (e) {
+            next()
+        }
+    }
+
 }
 
 module.exports = new NewsController()

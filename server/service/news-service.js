@@ -1,5 +1,6 @@
 const NewsModel = require('../models/news-model');
 const fileService = require('../service/file-service');
+const {Model} = require("mongoose");
 
 class NewsService {
     async getNews(req) {
@@ -28,6 +29,22 @@ class NewsService {
 
     async getPostById(id) {
         return NewsModel.findById(id);
+    }
+
+    async makeMain(id) {
+        await NewsModel.updateOne({ isMain: true }, { isMain: false });
+        await NewsModel.updateOne({ _id: id }, { isMain: true });
+    }
+
+    async getMainAndLastThreeNews() {
+        const mainPost = await NewsModel.findOne({ isMain: true });
+        const lastFour = await NewsModel.find()
+            .sort('-createdAt')
+            .limit(4)
+            .exec();
+        const filteredLastFour = lastFour.filter((item) => !item.equals(mainPost._id));
+        const lastThree = filteredLastFour.slice(0, 3);
+        return { main: mainPost, news: lastThree };
     }
 
 }
