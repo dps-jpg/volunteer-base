@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import cls from './EventsPage.module.css';
 import { MainPageSection } from 'shared/ui-kit/MainPageSection/MainPageSection';
-import { Box, Grid, Pagination } from '@mui/material';
+import { Box, Grid, Pagination, useMediaQuery } from '@mui/material';
 import { EventCard } from 'entities/EventCard/EventCard';
 import { useGetEventsQuery } from 'store/api/eventAip';
 
@@ -14,6 +14,7 @@ interface EventsPageProps {
 const PAGE_SIZE = 12;
 
 export const EventsPage: FC<EventsPageProps> = ({ className }) => {
+  const matches = useMediaQuery('(max-width: 600px)');
   const [page, setPage] = useState(0);
 
   const { data } = useGetEventsQuery({ page, limit: PAGE_SIZE, search: '' });
@@ -31,14 +32,14 @@ export const EventsPage: FC<EventsPageProps> = ({ className }) => {
   };
 
   return (
-    <MainPageSection mt={20} title={'Мероприятия'} className={classnames(cls.EventsPage, [className])}>
-      <Grid container spacing={4} pb={4}>
+    <MainPageSection mt={matches ? 12 : 20} title={'Мероприятия'} className={classnames(cls.EventsPage, [className])}>
+      <Box display={'flex'} justifyContent={'center'} flexWrap={'wrap'} gap={4} pb={4}>
         {data?.data.map((item) => (
-          <Grid display={'flex'} justifyContent={'center'} item lg={4} key={item._id}>
+          <Grid className={cls.newItem} display={'flex'} justifyContent={'center'} item lg={4} key={item._id}>
             <EventCard event={item} />
           </Grid>
         ))}
-      </Grid>
+      </Box>
       {Boolean(pageCount) && (
         <Box sx={{ p: '32px', display: 'flex', justifyContent: 'center' }}>
           <Pagination
@@ -47,8 +48,7 @@ export const EventsPage: FC<EventsPageProps> = ({ className }) => {
             onChange={handleChangePage}
             variant="outlined"
             color="primary"
-            showFirstButton
-            showLastButton
+            size={matches ? 'small' : 'medium'}
           />
         </Box>
       )}

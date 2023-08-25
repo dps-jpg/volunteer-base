@@ -20,7 +20,7 @@ export const NewsCard: FC<NewsCardProps> = ({ className, post }) => {
   };
 
   return (
-    <Card sx={{ width: 345, p: 2, borderRadius: 6, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} className={classnames(cls.NewsCard, [className])}>
+    <Card sx={{ width: '100%', p: 2, borderRadius: 6, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} className={classnames(cls.NewsCard, [className])}>
       <Box>
         <CardMedia
           sx={{ height: 220, borderRadius: 4 }}

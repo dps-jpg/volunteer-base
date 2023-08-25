@@ -14,7 +14,6 @@ class EventController {
 
     async getEventById(req, res, next) {
         try {
-
             const event = await eventService.getEventById(req.params.id, req.query.userId);
 
             res.json(event);

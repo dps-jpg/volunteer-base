@@ -12,3 +12,11 @@
     color: #FFFFFF;
     width: 500px;
 }
+
+@media (max-width: 600px) {
+    .MissionBlock {
+        margin-top: 24px;
+        background-size: contain;
+        height: 400px;
+    }
+}

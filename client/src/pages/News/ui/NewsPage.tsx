@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import cls from './NewsPage.module.css';
 import { MainPageSection } from 'shared/ui-kit/MainPageSection/MainPageSection';
 import { NewsCard } from 'entities/NewsCard/NewsCard';
-import { Box, Grid, Pagination } from '@mui/material';
+import { Box, Grid, Pagination, useMediaQuery } from '@mui/material';
 import { useGetNewsQuery } from 'store/api/newsApi';
 
 interface NewsPageProps {
@@ -15,6 +15,7 @@ const PAGE_SIZE = 12;
 
 export const NewsPage: FC<NewsPageProps> = ({ className }) => {
   const [page, setPage] = useState(0);
+  const matches = useMediaQuery('(max-width: 600px)');
 
   const { data } = useGetNewsQuery({ limit: PAGE_SIZE, page, search: '' });
 
@@ -31,14 +32,14 @@ export const NewsPage: FC<NewsPageProps> = ({ className }) => {
   };
 
   return (
-    <MainPageSection title={'Новости'} mt={20} className={classnames(cls.NewsPage, [className])}>
-      <Grid container spacing={4} pb={4}>
+    <MainPageSection title={'Новости'} mt={ matches ? 12 : 20} className={classnames(cls.NewsPage, [className])}>
+      <Box display={'flex'} flexWrap={'wrap'} justifyContent={'center'} gap={4} pb={4}>
         {data?.data.map((item, index) => (
-          <Grid display={'flex'} justifyContent={'center'} item lg={4} key={item._id}>
+          <Grid className={cls.newItem} display={'flex'} justifyContent={'center'} item lg={4} key={item._id}>
             <NewsCard post={item} />
           </Grid>
         ))}
-      </Grid>
+      </Box>
       {Boolean(pageCount) && (
         <Box sx={{ p: '32px', display: 'flex', justifyContent: 'center' }}>
           <Pagination
@@ -47,8 +48,7 @@ export const NewsPage: FC<NewsPageProps> = ({ className }) => {
             onChange={handleChangePage}
             variant="outlined"
             color="primary"
-            showFirstButton
-            showLastButton
+            size={matches ? 'small' : 'medium'}
           />
         </Box>
       )}

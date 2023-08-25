@@ -10,7 +10,7 @@ interface FooterSectionProps {
 
 export const FooterSection: FC<FooterSectionProps> = ({ children, title }) => {
   return (
-    <Box width={300}>
+    <Box minWidth={270} width={300}>
       <h4 className={cls.title}>{title}</h4>
       <hr className={cls.horizontalLine}/>
       {children}

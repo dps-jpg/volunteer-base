@@ -20,6 +20,7 @@ class EventService {
 
     async getEventById(id, userId) {
         const event = await EventModel.findById(id);
+        console.log(event);
         if (userId) {
             const member = await MemberModel.findOne({ eventId: id, userId });
             event._doc.isMember = Boolean(member);

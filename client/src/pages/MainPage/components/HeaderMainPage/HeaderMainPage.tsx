@@ -15,8 +15,8 @@ export const HeaderMainPage: FC<HeaderMainPageProps> = ({ className }) => {
       <Container>
         <Box>
           <Typography variant={'h2'}>Lorem ipsum</Typography>
-          <Typography mt={8} width={400} variant={'h6'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aliquid aspernatur atque culpa, deserunt, dolor eaque earum fuga illum ipsam numquam pariatur perferendis quam quod sapiente soluta voluptatem voluptatum?</Typography>
-          <Button size={'large'} sx={{ mt: 8 }} variant={'contained'}>Стать добровольцем</Button>
+          <Typography mt={{ md: 8, xs: 3 }} width={400} variant={'h6'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aliquid aspernatur atque culpa, deserunt, dolor eaque earum fuga illum ipsam numquam pariatur perferendis quam quod sapiente soluta voluptatem voluptatum?</Typography>
+          <Button size={'large'} sx={{ mt: { md: 8, xs: 3 } }} variant={'contained'}>Стать добровольцем</Button>
         </Box>
       </Container>
     </Box>

@@ -15,7 +15,7 @@ export const MainPageSection: FC<MainPageSectionProps> = ({ className, title, ch
   return (
     <Container className={classnames(cls.MainPageSection, [className])}>
       <Box mt={mt ?? 8}>
-        {title && <Typography mb={4} variant={'h3'}>{title}</Typography>}
+        {title && <Typography sx={{ fontSize: { xs: 24, sm: 34, md: 48 } }} mb={4} variant={'h3'}>{title}</Typography>}
         {children}
       </Box>
     </Container>

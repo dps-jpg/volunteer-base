@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { MainPageSection } from 'shared/ui-kit/MainPageSection/MainPageSection';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import cls from 'widget/Footer/ui/components/FooterFeedback/FooterFeedback.module.css';
 
 interface indexProps {
@@ -8,17 +8,18 @@ interface indexProps {
 }
 
 export const AboutPage: FC<indexProps> = ({ className }) => {
+  const matches = useMediaQuery('(max-width: 600px)');
   return (
-    <MainPageSection mt={20}>
-      <Box display={'flex'} mb={4}>
+    <MainPageSection mt={matches ? 12 : 20}>
+      <Box sx={{ flexDirection: { xs: 'column', md: 'row' } }} display={'flex'} mb={4}>
         <Box flex={1} display={'flex'} gap={1} flexDirection={'column'}>
-          <Typography mb={1} variant={'h4'}>Наши контакты</Typography>
+          <Typography sx={{ fontSize: { xs: 24, sm: 34 } }} mb={1} variant={'h4'}>Наши контакты</Typography>
           <a className={cls.link} href="tel: 8 (800) 333-77-37">8 (800) 333-77-37</a>
           <a className={cls.link} href="mailto: my_carier@gmail.com">my_carier@gmail.com</a>
           <a className={cls.link} href="mailto: support_carier@gmail.com">support_carier@gmail.com</a>
         </Box>
-        <Box flex={1}>
-          <Typography mb={2} variant={'h4'}>Наше местоположение</Typography>
+        <Box flex={1} sx={{ mt: { xs: 4, md: 0 } }}>
+          <Typography sx={{ fontSize: { xs: 24, sm: 34 } }} mb={2} variant={'h4'}>Наше местоположение</Typography>
           <div style={{ position: 'relative', overflow: 'hidden' }}>
             <a
               href="https://yandex.ru/maps/1104/cherkessk/?utm_medium=mapframe&utm_source=maps"
@@ -29,7 +30,7 @@ export const AboutPage: FC<indexProps> = ({ className }) => {
               style={{ color: '#eee', fontSize: 12, position: 'absolute', top: 14 }}>Улица Доватора, 19 — Яндекс Карты</a>
             <iframe
               src="https://yandex.ru/map-widget/v1/?ll=42.046787%2C44.208366&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoyMDc4MDc1NzcxEn3QoNC-0YHRgdC40Y8sINCa0LDRgNCw0YfQsNC10LLQvi3Qp9C10YDQutC10YHRgdC60LDRjyDQoNC10YHQv9GD0LHQu9C40LrQsCwg0KfQtdGA0LrQtdGB0YHQuiwg0YPQu9C40YbQsCDQlNC-0LLQsNGC0L7RgNCwLCAxOSIKDeovKEIVXtUwQg%2C%2C&z=17.15"
-              width="560" height="400" allowFullScreen style={{ position: 'relative' }}></iframe>
+              width="100%" height="400" allowFullScreen style={{ position: 'relative' }}></iframe>
           </div>
         </Box>
       </Box>

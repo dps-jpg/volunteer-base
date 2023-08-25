@@ -4,6 +4,8 @@ import { Box, Button, Paper, Table, TableCell, TableContainer, TableRow, Typogra
 import { useModalState } from 'shared/hooks/useModalState';
 import { useGetMeQuery } from 'store/api/auth';
 import { useOnClickOutside } from 'shared/hooks/useClickOutside';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routerConfig';
 
 interface ProfileProps {
   className?: string;
@@ -11,6 +13,7 @@ interface ProfileProps {
 
 export const Profile: FC<ProfileProps> = ({ className }) => {
   const ref = useRef(null);
+  const navigate = useNavigate();
   const { data: me, refetch } = useGetMeQuery();
 
   const [isOpen, open, close] = useModalState(false);
@@ -24,6 +27,7 @@ export const Profile: FC<ProfileProps> = ({ className }) => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     void refetch();
+    navigate(RoutePath.sign_in);
   };
 
   return (
@@ -33,12 +37,29 @@ export const Profile: FC<ProfileProps> = ({ className }) => {
         fontSize={20}
         fontWeight={600}
         onClick={handleToggle}
-        sx={{ cursor: 'pointer' }}
+        sx={{ cursor: 'pointer', fontSize: { sm: 16, md: 20 } }}
       >
         Профиль
       </Typography>
       {isOpen && me && (
-      <TableContainer sx={{ width: '300px', position: 'absolute', bottom: 0, right: 0, transform: 'translateY(100%)', zIndex: 20 }} component={Paper}>
+      <TableContainer
+        sx={{
+          width: '300px',
+          position: 'absolute',
+          bottom: -8,
+          left: {
+            xs: 0,
+            sm: 'auto'
+          },
+          right: {
+            xs: 'auto',
+            sm: 0
+          },
+          transform: 'translateY(100%)',
+          zIndex: 20
+        }}
+        component={Paper}
+      >
         <Table>
           <TableRow>
             <TableCell sx={{ p: 1 }}>Имя</TableCell>

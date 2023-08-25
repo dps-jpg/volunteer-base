@@ -8,7 +8,6 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardHeader,
   CardMedia,
   Typography
 } from '@mui/material';
@@ -28,16 +27,21 @@ export const EventCard: FC<EventCardProps> = ({ className, event }) => {
     navigate(RoutePath.event.replace(':id', event._id));
   };
   return (
-    <Card sx={{ width: 345 }} className={classnames(cls.EventCard, [className])}>
-      <CardHeader
-        title={<Typography noWrap sx={{ textOverflow: 'ellipsis', width: '313px' }} variant={'h6'}>{event.title}fdsaf ads fasd fasd sa df</Typography>}
-        subheader={
-          <Box justifyContent={'space-between'}>
-            <Typography variant="body2" color="text.secondary">{event.createdAt}</Typography>
-            <Typography className={cls.body} variant="body2" color="text.secondary">{event.city}</Typography>
-          </Box>
-        }
-      />
+    <Card sx={{ width: '100%' }} className={classnames(cls.EventCard, [className])}>
+      <Box sx={{ width: '100%', p: 2 }}>
+        <Typography noWrap sx={{ textOverflow: 'ellipsis', width: '100%' }} variant={'h6'}>{event.title}</Typography>
+        <Box justifyContent={'space-between'}>
+          <Typography variant="body2" color="text.secondary">{event.createdAt}</Typography>
+          <Typography className={cls.body} variant="body2" color="text.secondary">{event.city}</Typography>
+        </Box>
+      </Box>
+      {/* <CardHeader */}
+      {/*  */}
+      {/*  title={} */}
+      {/*  subheader={ */}
+      {/*    */}
+      {/*  } */}
+      {/* /> */}
       <CardMedia
         sx={{ height: 220 }}
         image={`${_API_}/${event.images[0]}`}

@@ -58,7 +58,7 @@ export const SignIn: FC<SignInProps> = ({ className }) => {
   return (
     <MainPageSection mt={20} className={classnames(cls.SignIn, [className])}>
       <Box pb={4} display={'flex'} justifyContent={'center'}>
-        <Paper sx={{ p: 4, width: '500px', display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Paper sx={{ p: { xs: 2, sm: 4 }, width: '500px', display: 'flex', flexDirection: 'column', gap: 2 }}>
           <Typography variant={'h5'} textAlign={'center'}>Авторизация</Typography>
           <TextField value={email} onChange={(event) => { setEmail(event.target.value); }} label="Логин" variant="outlined" />
           <FormControl variant="outlined">

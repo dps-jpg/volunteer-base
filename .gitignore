@@ -1,4 +1,5 @@
 **/node_modules
+admin/build
 client/build
 server/public
 /.idea

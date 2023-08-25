@@ -62,7 +62,7 @@ export const SignUp: FC<SignUpProps> = ({ className }) => {
   return (
     <MainPageSection mt={20} className={classnames(cls.SignIn, [className])}>
       <Box pb={4} display={'flex'} justifyContent={'center'}>
-        <Paper sx={{ p: 4, width: '500px', display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Paper sx={{ p: { xs: 2, sm: 4 }, width: '500px', display: 'flex', flexDirection: 'column', gap: 2 }}>
           <Typography variant={'h5'} textAlign={'center'}>Регистрация</Typography>
           <TextField required value={email} onChange={(event) => { setEmail(event.target.value); }} label="Email (login)" variant="outlined" />
           <TextField required value={secondName} onChange={(event) => { setSecondName(event.target.value); }} label="Фамилия" variant="outlined" />

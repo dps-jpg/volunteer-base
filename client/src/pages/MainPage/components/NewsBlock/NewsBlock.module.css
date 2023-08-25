@@ -20,3 +20,40 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+@media (max-width: 900px) {
+    .image {
+        width: 500px;
+        height: 300px;
+    }
+    .title {
+        font-size: 30px;
+    }
+    .body {
+        -webkit-line-clamp: 7;
+    }
+    .newsCard:nth-child(2) {
+        display: none;
+    }
+}
+
+@media (max-width: 750px) {
+    .image {
+        width: 350px;
+        height: 250px;
+    }
+    .body {
+        -webkit-line-clamp: 5;
+    }
+}
+
+@media (max-width: 600px) {
+    .image {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+    }
+    .body {
+        -webkit-line-clamp: 4;
+    }
+}

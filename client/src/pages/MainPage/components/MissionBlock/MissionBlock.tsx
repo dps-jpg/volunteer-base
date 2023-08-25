@@ -15,13 +15,13 @@ export const MissionBlock: FC<MissionBlockProps> = ({ className }) => {
       <Box bgcolor={'rgba(0, 0, 0, .5)'} height={'100%'}>
         <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', height: '100%' }}>
           <Box className={cls.paper}>
-            <Typography gutterBottom variant={'h3'}>
+            <Typography sx={{ fontSize: { xs: 32, sm: 48 } }} gutterBottom variant={'h3'}>
               Наша миссия
             </Typography>
-            <Typography variant={'h6'}>
+            <Typography sx={{ fontSize: { xs: 16, sm: 20 } }} variant={'h6'}>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi consectetur consequatur cumque dolorem eius esse excepturi expedita explicabo, magnam minima nemo nulla, numquam optio quidem reiciendis tempore velit voluptates.
             </Typography>
-            <Typography gutterBottom variant={'h6'}>
+            <Typography sx={{ fontSize: { xs: 16, sm: 20 } }} gutterBottom variant={'h6'}>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi consectetur consequatur cumque dolorem eius esse excepturi expedita explicabo, magnam minima nemo nulla, numquam optio quidem reiciendis tempore velit voluptates.
             </Typography>
             <Button size={'large'} variant={'contained'}>Присоединиться к нам</Button>

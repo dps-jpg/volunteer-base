@@ -16,8 +16,21 @@ export const PartnersBlock: FC<PartnersBlockProps> = ({ className }) => {
     <MainPageSection title={'Партнеры'}>
       <Box pt={4} pb={4} position={'relative'}>
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+          breakpoints={{
+            1000: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            },
+            600: {
+              slidesPerView: 2,
+              spaceBetween: 30
+            },
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 30
+            }
+          }}
+          loop={true}
           autoplay={{
             delay: 3000
           }}
