@@ -8,7 +8,7 @@ import { buildDevServer } from './buildDevServer';
 export function buildWebpackConfig (options: BuildOptions): webpack.Configuration {
   const { paths, isDev } = options;
   return {
-    mode: 'development',
+    mode: isDev ? 'development' : 'production',
     entry: paths.entry,
     output: {
       filename: '[name].[contenthash].js',

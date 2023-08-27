@@ -14,7 +14,7 @@ const app = express();
 
 app.use(express.json());
 app.use(upload.array('images'));
-app.use(express.static('public'));
+app.use('/api', express.static('public'));
 app.use(cors({
     credentials: true,
     origin: [process.env.CLIENT_URL]
