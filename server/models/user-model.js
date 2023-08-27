@@ -20,7 +20,7 @@ const UserSchema = new Schema({
 const userModel = model('User', UserSchema);
 module.exports = userModel
 
-
+// bcrypt.hash('bgAdmin@dobro.minmolkchr.com', 3).then((res) => console.log(res));
 
 // const qwe = async () => {
 //     console.log(await bcrypt.hash('admin', 3));
