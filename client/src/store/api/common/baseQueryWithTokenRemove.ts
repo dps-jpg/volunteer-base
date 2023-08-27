@@ -3,7 +3,7 @@ import { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/qu
 import { readLocalStorage } from 'shared/lib/localStorage';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:5000/api',
+  baseUrl: `${_API_}/api`,
   prepareHeaders: (headers) => {
     const token = readLocalStorage('token');
     if (token && typeof token === 'string') {

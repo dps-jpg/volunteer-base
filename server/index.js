@@ -17,7 +17,7 @@ app.use(upload.array('images'));
 app.use(express.static('public'));
 app.use(cors({
     credentials: true,
-    origin: [process.env.CLIENT_URL, process.env.CLIENT_URL.replace('3000', '3001')]
+    origin: [process.env.CLIENT_URL]
 }));
 app.use('/api', router);
 app.use(errorMiddleware);

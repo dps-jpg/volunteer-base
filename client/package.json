@@ -4,8 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "webpack serve --env port=3000",
-    "build:prod": "webpack --env mode=production",
+    "start": "webpack serve --env port=3000  apiUrl=http://dobro.minmolkchr.ru",
+    "build:prod": "webpack --env mode=production  apiUrl=http://dobro.minmolkchr.ru",
     "build:dev": "webpack --env mode=development",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix"

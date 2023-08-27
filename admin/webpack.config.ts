@@ -10,6 +10,7 @@ export default (env: BuildEnv) => {
     html: path.resolve(__dirname, 'public', 'index.html')
   };
 
+  console.log('apiUrl', env.apiUrl);
   const apiUrl = env.apiUrl || 'http://localhost:5000';
   const mode: BuildMode = env.mode ?? 'development';
   const isDev = mode === 'development';
