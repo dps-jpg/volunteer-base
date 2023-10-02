@@ -16,7 +16,7 @@
 @media (max-width: 600px) {
     .MissionBlock {
         margin-top: 24px;
-        background-size: contain;
-        height: 400px;
+        background-size: 120%;
+        height: 430px;
     }
 }

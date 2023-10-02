@@ -19,12 +19,9 @@ export const MissionBlock: FC<MissionBlockProps> = ({ className }) => {
               Наша миссия
             </Typography>
             <Typography sx={{ fontSize: { xs: 16, sm: 20 } }} variant={'h6'}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi consectetur consequatur cumque dolorem eius esse excepturi expedita explicabo, magnam minima nemo nulla, numquam optio quidem reiciendis tempore velit voluptates.
+              Наша миссия – содействие развитию добровольчества и вклад положительных изменений в жизни людей через поддержку разнообразных благотворительных, социальных и экологических проектов. Мы стремимся вдохновить людей на добрые дела и создать платформу взаимопомощи для лучшего общества. Присоединяйтесь к нам и вместе мы сделаем больше добра!
             </Typography>
-            <Typography sx={{ fontSize: { xs: 16, sm: 20 } }} gutterBottom variant={'h6'}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi consectetur consequatur cumque dolorem eius esse excepturi expedita explicabo, magnam minima nemo nulla, numquam optio quidem reiciendis tempore velit voluptates.
-            </Typography>
-            <Button size={'large'} variant={'contained'}>Присоединиться к нам</Button>
+            <Button sx={{ mt: 2 }} size={'large'} variant={'contained'}>Присоединиться к нам</Button>
           </Box>
         </Container>
       </Box>

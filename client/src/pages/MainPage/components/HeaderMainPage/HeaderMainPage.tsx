@@ -14,9 +14,12 @@ export const HeaderMainPage: FC<HeaderMainPageProps> = ({ className }) => {
     <Box style={{ backgroundImage: `url("${mainImage}")` }} className={classnames(cls.HeaderMainPage, [className])}>
       <Container>
         <Box>
-          <Typography variant={'h2'}>Lorem ipsum</Typography>
-          <Typography mt={{ md: 8, xs: 3 }} width={400} variant={'h6'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aliquid aspernatur atque culpa, deserunt, dolor eaque earum fuga illum ipsam numquam pariatur perferendis quam quod sapiente soluta voluptatem voluptatum?</Typography>
-          <Button size={'large'} sx={{ mt: { md: 8, xs: 3 } }} variant={'contained'}>Стать добровольцем</Button>
+          <Typography className={cls.title}>Добро пожаловать на платформу добровольчества!</Typography>
+          <Typography mt={{ md: 4, xs: 2 }} sx={{ width: { sm: 500, xs: '100%' } }} variant={'h6'}>
+            Наша платформа предназначена для тех, кто желает внести свой вклад и помочь другим. Это пространство, чтобы объединить людей, желающих делать добрые дела и помогать тем, кто нуждается в поддержке. Здесь вы сможете найти различные возможности для добровольческой работы и участия в благотворительных проектах.
+            Присоединяйтесь к нам и станьте частью нашей команды добровольцев. Вместе мы сможем сделать наш мир лучше.
+          </Typography>
+          <Button size={'large'} sx={{ mt: { md: 4, xs: 2 } }} variant={'contained'}>Стать добровольцем</Button>
         </Box>
       </Container>
     </Box>

@@ -1,12 +1,39 @@
 .HeaderMainPage {
     background-size: cover;
     background-repeat: no-repeat;
-    padding-top: calc(var(--nav-height) + 160px);
+    padding-top: calc(var(--nav-height) + 100px);
     height: 100vh;
+    min-height: fit-content;
+}
+.title {
+    font-size: 48px !important;
+    font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+    .HeaderMainPage {
+        padding-top: calc(var(--nav-height) + 50px);
+    }
+    .title {
+        font-size: 44px !important;
+    }
 }
 
 @media (max-width: 900px) {
     .HeaderMainPage {
 
     }
+    .title {
+        font-size: 36px !important;
+    }
 }
+
+@media (max-width: 600px) {
+    .HeaderMainPage {
+
+    }
+    .title {
+        font-size: 24px !important;
+    }
+}
+
