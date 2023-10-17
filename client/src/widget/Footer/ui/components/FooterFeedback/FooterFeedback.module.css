@@ -5,10 +5,12 @@
   align-items: center;
 }
 .vkLogo {
+  cursor: pointer;
   width: 39px;
   height: 20px;
 }
 .logo {
+  cursor: pointer;
   width: 32px;
   height: 28px;
 }

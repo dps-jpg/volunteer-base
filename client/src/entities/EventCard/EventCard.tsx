@@ -31,23 +31,16 @@ export const EventCard: FC<EventCardProps> = ({ className, event }) => {
       <Box sx={{ width: '100%', p: 2 }}>
         <Typography noWrap sx={{ textOverflow: 'ellipsis', width: '100%' }} variant={'h6'}>{event.title}</Typography>
         <Box justifyContent={'space-between'}>
-          <Typography variant="body2" color="text.secondary">{event.createdAt}</Typography>
+          <Typography variant="body2" color="text.secondary">{event.date}</Typography>
           <Typography className={cls.body} variant="body2" color="text.secondary">{event.city}</Typography>
         </Box>
       </Box>
-      {/* <CardHeader */}
-      {/*  */}
-      {/*  title={} */}
-      {/*  subheader={ */}
-      {/*    */}
-      {/*  } */}
-      {/* /> */}
       <CardMedia
         sx={{ height: 220 }}
         image={`${_API_}/${event.images[0]}`}
       />
       <CardContent sx={{ p: 2 }}>
-        <Typography whiteSpace={'pre-wrap'} variant="body2" color="text.secondary">
+        <Typography className={cls.body} whiteSpace={'pre-wrap'} variant="body2" color="text.secondary">
           {event.body}
         </Typography>
       </CardContent>

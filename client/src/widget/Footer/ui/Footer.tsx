@@ -15,7 +15,8 @@ export const Footer: FC = () => {
             <FooterNavSection />
             <FooterFeedback />
           </div>
-          <p className={cls.license}>Copyright © 2010-2023 Freepik Company S.L. Все права защищены.</p>
+          <p className={cls.license}>Copyright © 2010-2023 Freepik Company S.L. Все права защищены. <br/> Powered by
+            <a target="_blank" href="https://alazarstudio.ru" rel="noreferrer"> Alazar</a></p>
         </div>
       </Container>
     </footer>

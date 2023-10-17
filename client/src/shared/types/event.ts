@@ -2,6 +2,7 @@ export interface EventTypes {
   _id: string;
   title: string;
   body: string;
+  date: string;
   images: string[];
   hours: number;
   city: string;

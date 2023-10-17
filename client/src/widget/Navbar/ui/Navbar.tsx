@@ -35,7 +35,7 @@ export const Navbar: FC = () => {
           <div className={classnames(cls.nav, { [cls.active]: isOpen })}>
             <NavLink to={RoutePath.main}>Главная</NavLink>
             <NavLink to={RoutePath.news}>Новости</NavLink>
-            <NavLink to={RoutePath.events}>Меороприятия</NavLink>
+            <NavLink to={RoutePath.events}>Мероприятия</NavLink>
             <NavLink to={RoutePath.about}>О нас</NavLink>
             {me
               ? (

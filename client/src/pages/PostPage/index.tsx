@@ -39,7 +39,10 @@ export const PostPage: FC = () => {
         >
           {post?.images.map((image) => (
             <SwiperSlide key={image} style={{ width: '100%', height }}>
-              <img style={{ width: '100%', height }} src={`${_API_}/${image}`} alt=""/>
+              <div
+                style={{ width: '100%', height, backgroundImage: `url(${_API_}/${image})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
+              />
+              {/* <img style={{ width: '100%', height }} src={`${_API_}/${image}`} alt=""/> */}
             </SwiperSlide>
           ))}
         </Swiper>

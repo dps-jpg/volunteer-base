@@ -57,7 +57,7 @@ export const EventPage: FC = () => {
         </Swiper>
         <Box mt={2} display={'flex'} sx={{ flexDirection: { xs: 'column', sm: 'row' } }} justifyContent={'space-between'}>
           <Box>
-            <Typography>{event?.createdAt}</Typography>
+            <Typography>{event?.date}</Typography>
             <Typography>{event?.city}</Typography>
           </Box>
           {me && <Button sx={{ maxWidth: 400, mt: { xs: 2, sm: 0 } }} onClick={handleClick} variant={'outlined'}>{event?.isMember ? 'Вы участник' : 'Записаться волонторем'}</Button>}

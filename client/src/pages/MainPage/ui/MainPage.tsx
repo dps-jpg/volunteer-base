@@ -16,7 +16,7 @@ export const MainPage: FC<MainPageProps> = ({ className }) => {
     <Box pb={4}>
       <HeaderMainPage />
       <NewsBlock />
-      <PartnersBlock />
+      {/* <PartnersBlock /> */}
       <MissionBlock />
       <Links />
     </Box>

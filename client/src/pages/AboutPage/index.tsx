@@ -12,13 +12,13 @@ export const AboutPage: FC<indexProps> = ({ className }) => {
   return (
     <MainPageSection mt={matches ? 12 : 20}>
       <Box sx={{ flexDirection: { xs: 'column', md: 'row' } }} display={'flex'} mb={4}>
-        <Box flex={1} display={'flex'} gap={1} flexDirection={'column'}>
+        <Box flex={4} display={'flex'} gap={1} flexDirection={'column'}>
           <Typography sx={{ fontSize: { xs: 24, sm: 34 } }} mb={1} variant={'h4'}>Наши контакты</Typography>
-          <a className={cls.link} href="tel: 8 (800) 333-77-37">8 (800) 333-77-37</a>
-          <a className={cls.link} href="mailto: my_carier@gmail.com">my_carier@gmail.com</a>
-          <a className={cls.link} href="mailto: support_carier@gmail.com">support_carier@gmail.com</a>
+          <a className={cls.link} href="tel: 8 800 550 90 44">8 800 550 90 44 доб. 444</a>
+          <a className={cls.link} href="mailto: mail@resourcecenter09.ru">mail@resourcecenter09.ru</a>
+          <a className={cls.link} href="mailto: support@minmolkchr.ru">support@minmolkchr.ru</a>
         </Box>
-        <Box flex={1} sx={{ mt: { xs: 4, md: 0 } }}>
+        <Box flex={5} sx={{ mt: { xs: 4, md: 0 } }}>
           <Typography sx={{ fontSize: { xs: 24, sm: 34 } }} mb={2} variant={'h4'}>Наше местоположение</Typography>
           <div style={{ position: 'relative', overflow: 'hidden' }}>
             <a
